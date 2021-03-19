@@ -75,6 +75,19 @@ void ReverseString(std::string reverse, int location)
 
 }
 
+void printArray(int arrToPrint[], int size)
+{
+	std::cout << "{ ";
+	for (int i = 0; i < size; i++)
+	{
+		if (i != size - 1)
+			std::cout <<arrToPrint[i] << ", ";
+		else
+			std::cout << arrToPrint[i];
+	}
+	std::cout << " }\n";
+}
+
 int main()
 {
 	int choice;
@@ -95,12 +108,15 @@ int main()
 			std::cout << "Please input a string to check if it is a Palindrome.\n\nInput: ";
 			std::cin.ignore();
 			std::getline(std::cin, stringInput);
+
 			Palindrome(stringInput, 0, stringInput.size() - 1);
 			std::cout << "\n";
+
 			if (verified)
 				std::cout << stringInput << " is a Palindrome!\n";
 			else
 				std::cout << stringInput << " is not a Palindrome!\n";
+
 			system("pause");
 			system("cls");
 			break;
@@ -109,29 +125,18 @@ int main()
 			std::cout << "Please input the Number of Integers you wish to create.\n\nInput: ";
 			std::cin >> size;
 			Numbers = new int[size];
+
 			srand(time(NULL));
-			std::cout << "\n\nOriginal Array: { ";
 			for (int i = 0; i < size; i++)
-			{
 				Numbers[i] = rand() % 100 + 1;
-				if (i != size - 1)
-					std::cout << Numbers[i] << ", ";
-				else
-					std::cout << Numbers[i];
-			}
-			std::cout << " }\n\n";
+
+			std::cout << "\nOriginal Array: ";
+			printArray(Numbers, size);
 
 			QuickSort(Numbers, 0, size - 1);
-
-			std::cout << "Sorted Array: { ";
-			for (int i = 0; i < size; i++)
-			{
-				if (i != size - 1)
-					std::cout << Numbers[i] << ", ";
-				else
-					std::cout << Numbers[i];
-			}
-			std::cout << " }\n";
+			std::cout << "Sorted Array: ";
+			printArray(Numbers, size);
+			
 			system("pause");
 			system("cls");
 			break;
@@ -141,7 +146,9 @@ int main()
 			tempString = "";
 			std::cin.ignore();
 			std::getline(std::cin, stringInput);
+
 			ReverseString(stringInput, stringInput.size() - 1);
+
 			system("pause");
 			system("cls");
 			break;
