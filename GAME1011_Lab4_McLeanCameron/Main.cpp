@@ -36,11 +36,10 @@ int Partition(int input[], int start, int end)
 	
 	for (int i = start; i < end; i++)
 	{
-		if (input[i] < pivot)
+		if (input[i] <= pivot)
 		{
 			std::swap(input[i], input[index]);
-			index++;
-			
+			index++;			
 		}
 	}
 
@@ -66,7 +65,7 @@ void ReverseString(std::string reverse, int location)
 	tempString += reverse[location];
 	if (location == 0)
 	{
-		std::cout << "\n\n" << tempString << "\n";
+		std::cout << "\n" << tempString << "\n";
 		return;
 	}
 
@@ -99,7 +98,7 @@ int main()
 	while (running)
 	{
 		std::cout << "Welcome to the Recursive Function Program. Please choose one of the following options\n\n"
-			<< "1. Palindrome Checker\n2. Quicksort a Random list of Numberes\n3. Reverse a List\n4. Exit\n\nSelection: ";
+			<< "1. Palindrome Checker\n2. Quicksort a Random list of Numbers\n3. Reverse a List\n4. Exit\n\nSelection: ";
 		std::cin >> choice;
 		switch (choice)
 		{
